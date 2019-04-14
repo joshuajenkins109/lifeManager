@@ -1,0 +1,68 @@
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<link rel="stylesheet" href="Fridge.css">
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+        integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+        crossorigin="anonymous"></script>
+<link href="https://unpkg.com/tabulator-tables@4.2.3/dist/css/tabulator.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.2.3/dist/js/tabulator.min.js"></script>
+<script type="text/javascript" src="Fridge.js"></script>
+
+
+
+<body class="page">
+
+<div id="head">
+    <button id="return" class="return" type="button" onclick="returnButton()">&#8617 Return</button>
+    <h1>The Fridge</h1>
+</div>
+<div id="buttons" class="active">
+    <button class="button viewInventoryButton" type="button" onClick="onInventoryClick()">What's in the Fridge?</button>
+    <button class="button addButton" type="button">Let's Make Something</button>
+    <button class="button removeButton" type="button">Grocery List</button>
+</div>
+<div id="loading" style="display:none" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<div id="inventoryTable" style="display:none">
+    <div>
+        <form id="editForm">
+            <input id="closeFormButton" type="submit" value="Cancel">
+            <p id="editFormHeader"></p>
+            <button id="openButton" type="button" value="Open" style="display:none" onclick="openItem()">Open</button>
+            <input id="removeButton" type="submit" value="Remove item">
+            <input id="editButton" type="submit" value="Edit item info">
+
+        </form>
+        <button id="addButton"  type="button" onclick="addItem()">Add Item</button>
+        <w1 id="expireWarning">You have <w3>0</w3> Expired Items</w1>
+
+    </div>
+    <div id="addForm" style="display:none">
+        <form id="addFormElement" method="POST" action="/world">
+            <f1>Item Name</f1><br>
+            <input type="text" name="name"> <br>
+            <f1>Expire Date</f1><br>
+            <input type="date" name="expireDate"> <br>
+            <f1>Shelf Life</f1><br>
+            <input type="number" name="shelfLife" min="1">
+            <select name="shelfLifeHelper">
+                <option value="Day(s)">Day(s)</option>
+                <option value="Week(s)">Week(s)</option>
+                <option value="Month(s)">Month(s)</option>
+            </select><br>
+            <input type="radio" name="opened" value="True" checked> Open
+            <input type="radio" name="opened" value="False"> Closed <br>
+            <input type="radio" name="inFridge" value="True" checked> In Fridge
+            <input type="radio" name="inFridge" value="False"> Not in Fridge <br>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <div id="inventoryTablediv"></div>
+</div>
+
+
+</body>
