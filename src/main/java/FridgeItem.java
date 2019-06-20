@@ -2,6 +2,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -38,7 +40,16 @@ public class FridgeItem {
     private Date inDate;
 
     public Date getInDate() {
+        /*SimpleDateFormat sdf = new SimpleDateFormat(
+                "MM-dd-yyyy");
+
+        try{
+            inDate = sdf.parse(sdf.format(inDate));
+        }catch(ParseException pe) {
+            System.out.println(pe);
+        }*/
         return inDate;
+
     }
 
     @PrePersist

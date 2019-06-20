@@ -1,43 +1,45 @@
 var editFormId;
+var editFormName;
+var editFormExpireDate;
 
+var globTable;
 
+var cntr;
 
 
 function showEditForm(){
-    document.getElementById("editForm").style.display = "block";
-    document.getElementById("addButton").style.display = "none";
-    document.getElementById("expireWarning").style.display = "none";
+    document.getElementById("editFormModal").style.display = "flex";
 }
 function hideEditForm(){
-    document.getElementById("editForm").style.display = "none";
-    document.getElementById("addButton").style.display = "block";
-    document.getElementById("expireWarning").style.display = "block";
+    document.getElementById("editFormModal").style.display = "none";
 }
 function showOpenButton(){
-    document.getElementById("openButton").style.display = "block";
+    document.getElementById("openButton").style.display = "flex";
 }
 function hideOpenButton(){
     document.getElementById("openButton").style.display = "none";
 }
 
 
-function onResponse(response) {
+function buildInventoryTable(response) {
     var json =  response;
-    console.log(json);
 
-    var d2 = document.getElementById("loading");
-    var d3 = document.getElementById("inventoryTable");
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("inventoryTable").style.display = "flex";
 
-    d2.style.display = "none";
-    d3.style.display = "block";
-    console.log(json , "here");
-    console.trace();
-    var cntr = 0;
-    var table = new Tabulator("#inventoryTablediv", {
+    cntr = 0;
+    globTable = new Tabulator("#inventoryTablediv", {
         rowClick:function(e, row){
-            console.log("row Click!");
             var data = row.getData();
-            document.getElementById("editFormHeader").innerHTML = "Item: " + data.name;
+            $("#editFormHeaderItemName").text("Item: " + data.name);
+            $("#editFormHeaderItemStatus").text(function(){
+
+            });
+            $("#editFormHeaderItemInDate").text("In Date: " + data.inDate);
+            $("#editFormHeaderItemExpireDate").text("Expire Date: " + data.expireDate);
+            $("#editFormHeaderItemShelfLife").text("Shelf Life: " + data.shelfLife + " day(s)");
+
+
             if(data.opened == false){
                 showOpenButton();
             }
@@ -45,64 +47,142 @@ function onResponse(response) {
                 hideOpenButton();
             }
             editFormId = data.id;
+            editFormName = data.name;
+            editFormExpireDate = data.expireDate;
             showEditForm();
         },
         rowFormatter:function(row){
             var data = row.getData();
-            if(data.shelfLife > 200){
-                row.getElement().style.backgroundColor = "#ff0000";
+            if(isExpired(data.expireDate)){
+                row.getElement().style.backgroundColor = "#FF4136";
                 cntr++;
             }
         },
         data:json,
         layout:"fitColumns", //fit columns to width of table (optional)
         columns:[ //Define Table Columns
+            {title:"Id", field:"id", width: 20},
             {title:"Name", field:"name", width:150},
-            {title:"In-Date", field:"inDate", align:"center", sorter:"date", sorterParams:{outputFormat:"MM/DD/YYYY"}},
-            {title:"Expire-Date", field:"expireDate", align:"center", sorter:"date", sorterParams:{outputFormat:"MM/DD/YYYY"}},
-            {title:"Shelf Life", field:"shelfLife",  align:"center", sorter:"number"},
+            {title:"In-Date", field:"inDate", align:"center", sorter:"date", sorterParams:{format:"MM/DD/YYYY"}, formatter:"datetime", formatterParams:{outputFormat:"MM/DD/YYYY"}},
+            {title:"Expire-Date", field:"expireDate", align:"center", sorter:"date", sorterParams:{format:"DD/MM/YY"}},
+            {title:"Shelf Life (days)", field:"shelfLife",  align:"center", sorter:"number"},
             {title:"In Fridge", field:"inFridge",  align:"center", sorter:"boolean"},
             {title:"Opened", field:"opened",  align:"center", sorter:"boolean"},
         ],
 
     });
+    setExpireWarning();
+
+}
+
+function isExpired(expireDate){
+    var expires = new Date(expireDate);
+    var current = new Date();
+    if(expires.getTime() < current.getTime()) return true;
+    else return false;
+
+
+}
+
+function setExpireWarning(){
     if(cntr == 1){
         document.getElementById("expireWarning").innerHTML = "You have " + "<w2>"+cntr +"</w2>"+ " expired item in your fridge";
     }
-    else if(cntr > 1){
+    else if (cntr > 1){
         document.getElementById("expireWarning").innerHTML = "You have " + "<w2>"+cntr +"</w2>"+ " expired items in your fridge";
     }
-
+    else{
+        document.getElementById("expireWarning").innerHTML = "You have " + "<w3>"+cntr +"</w3>"+ " expired items in your fridge";
+    }
 }
 
 function onInventoryClick() {
-    var d1 = document.getElementById("buttons");
-    d1.style.display = "none";
-    var d2 = document.getElementById("loading");
-    d2.style.display = "block";
+    document.getElementById("buttons").style.display = "none";
+    document.getElementById("loading").style.display = "flex";
     var d3 = document.getElementById("inventoryTable");
-    console.log(d2);
     $.ajax({
-        url: '/world',
+        url: '/GETFridgeInventory',
         type: 'GET',
-        success: onResponse
+        success: buildInventoryTable
     });
 
 
 
 }
 
-$('#addFormElement').submit(function(e){
-    console.log("stuff");
-    e.preventDefault();
 
-    $.ajax({
-        url:'/world',
-        type:'POST',
-        success:function(){
-        }
-    });
+
+window.addEventListener("click", function(event){
+    if (event.target == document.getElementById("editFormModal")){
+        document.getElementById("editFormModal").style.display = "none";
+    }
+    else if(event.target == document.getElementById("addFormModal")){
+        document.getElementById("addFormModal").style.display = "none";
+    }
 });
+
+function resetAddFormFields(){
+    $(':input','#addFormModalContent')
+        .not(':button, :submit, :reset, :hidden, #addFormShelfLifeHelper')
+        .val('')
+}
+
+function addItemToInventory() {
+    if (document.getElementById("addFormName").value != "" && (document.getElementById("addFormExpireDate").value != "" ||
+            document.getElementById("addFormShelfLife").value != "")) {
+
+        var postObject = {
+            name: document.getElementById("addFormName").value,
+            expireDate: document.getElementById("addFormExpireDate").value,
+            shelfLife: document.getElementById("addFormShelfLife").value,
+            shelfLifeHelper: document.getElementById("addFormShelfLifeHelper").value,
+            opened: $("input[type='radio'][name='opened']:checked").val(),
+            inFridge: $("input[type='radio'][name='inFridge']:checked").val()
+
+
+        };
+        $.ajax({
+            url: '/AddItemToFridge',
+            type: 'POST',
+            data: postObject,
+            success: function (response) {
+                closeAddItemForm();
+                resetAddFormFields();
+                addItemToTable(response);
+            },
+            error: function(xhr, status, error) {
+                console.log("resp: " +xhr.responseText);
+                console.log("status: " + status);
+                console.log("error: "+error);
+            }
+        });
+    }
+    else{
+        showFormError();
+    }
+}
+
+function addItemToTable(postObject){
+    if(postObject.expireDate)
+    globTable.addRow(postObject);
+}
+
+function showFormError(){
+    if(document.getElementById("addFormName").value == ""){
+        //show name required
+        document.getElementById("addFormName").style.backgroundColor = "#F2DEDE";
+        document.getElementById("NameErrorMessage").style.display = "flex";
+    }
+    else{
+        document.getElementById("addFormName").style.backgroundColor = "white";
+        document.getElementById("NameErrorMessage").style.display = "none"
+    }
+    if(!(document.getElementById("addFormExpireDate").value != "" || document.getElementById("addFormShelfLife").value != "")){
+        $("#ItemErrorMessage").style.display = "flex";
+
+    }
+}
+
 
 
 
@@ -110,10 +190,9 @@ $('#addFormElement').submit(function(e){
 
 
 function returnButton(){
-    if(document.getElementById("inventoryTable").style.display == "block"){
+    if(document.getElementById("inventoryTable").style.display == "flex"){
         document.getElementById("inventoryTable").style.display = "none";
         document.getElementById("buttons").style.display = "flex";
-        document.getElementById("buttons").class
     }
     else if(document.getElementById("buttons").style.display != "none"){
         document.location.href = "index.html";
@@ -122,45 +201,102 @@ function returnButton(){
 
 }
 
+function openAddItemForm(){
+    document.getElementById("addFormModal").style.display = "flex";
 
-
-var resp = "";
-
-function getRello(){
-    const xmlhttp = new XMLHttpRequest();
-    var url="world";
-
-    xmlhttp.open('GET', url, true);
-    xmlhttp.send(null);
-    xmlhttp.onreadystatechange = function () {
-
-        console.log(xmlhttp.responseText);
-
-
-    }
+}
+function closeAddItemForm(){
+    document.getElementById("addFormModal").style.display = "none";
 }
 
-function addItem(){
-    var v1 = document.getElementById("addButton");
-    v1.style.display = "none";
-    var v2 = document.getElementById("addForm");
-    v2.style.display = "block";
-
+function openItemConfirmation(){
+    swal({
+        title: "Are you sure?",
+        text: "Will open item and start it's shelf life",
+        icon: "warning",
+        buttons: true,
+        dangerMode: false,
+    })
+        .then((willOpen) => {
+        if( willOpen){
+            openItem();
+            swal("", {
+                text: editFormName + " opened!",
+                icon: "success",
+            });
+        }
+    })
 }
 
 function openItem(){
+    console.log("openItem called");
     var json = {"id":editFormId};
 
     $.ajax({
-        url: '/itemUpdate',
+        url: '/OpenItem',
         type: 'POST',
         data: json,
-        dataType: 'json',
-        success: function(){
-
+        success: function(response){
+            console.log("respppper");
+            console.log(response);
+            var item = [response];
+            globTable.updateData(item);
+            hideOpenButton();
+        },
+        error: function(xhr, status, error){
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
         }
     });
 
-
 }
+
+
+function removeItemConfirmation(){
+
+    swal({
+        title: "Are you sure?",
+        text: "Will remove "+ editFormName+ " from Inventory",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+        if (willDelete) {
+            removeItem();
+            hideEditForm();
+            swal("", {
+                text: editFormName + " removed!",
+                icon: "success",
+            });
+        }
+});
+
+    console.log("well did it work?");
+}
+function removeItem(){
+    var json = {"id":editFormId};
+    $.ajax({
+        url: '/RemoveItem',
+        type: 'POST',
+        data: json,
+        success: function() {
+
+
+            cntr = 0;
+            globTable.deleteRow(editFormId);
+            setExpireWarning();
+
+        },
+        error: function(xhr, status, error) {
+           console.log("resp: " +xhr.responseText);
+           console.log("status: " + status);
+           console.log("error: "+error);
+        }
+
+    });
+}
+
+
 

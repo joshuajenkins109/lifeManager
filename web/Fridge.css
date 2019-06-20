@@ -2,11 +2,16 @@
     background: url("bsmwp.jpg");
     background-color: silver;
 }
-h1{
+.flex-centered{
+    align-self: center;
+}
+.h1{
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 2em;
     text-align: center;
+    justify-content: center;
+
 }
 
 .return{
@@ -17,7 +22,7 @@ h1{
     background: rgba(76, 175, 80, 0.1);
     border-radius: 8px;
 }
-input[type=text], input[type=number], input[type=date], select {
+/*input[type=text], input[type=number], input[type=date], select {
     width: 40%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -25,13 +30,13 @@ input[type=text], input[type=number], input[type=date], select {
     border: 1px solid black;
     border-radius: 4px;
     box-sizing: border-box;
-}
+}*/
 f1 {
-    display:inline-block;
+    display:flex;
     font-size: 20px;
 }
 w1{
-    display:block;
+    display:flex;
     float:bottom;
     font-weight: bold;
     font-family: 'Yatra One', cursive;
@@ -41,6 +46,8 @@ w1{
 }
 w2{
     color: red;
+    font-weight: bold;
+    font-family: 'Yatra One', cursive;
     font-size: 20px;
     text-shadow:
             -1px -1px 0 #000,
@@ -48,8 +55,11 @@ w2{
             -1px 1px 0 #000,
             1px 1px 0 #000;
 }
+
 w3{
     color:lawngreen;
+    font-weight: bold;
+    font-family: 'Yatra One', cursive;
     text-shadow:
             -1px -1px 0 #000,
             1px -1px 0 #000,
@@ -57,16 +67,27 @@ w3{
             1px 1px 0 #000;
 }
 
-
-#addForm {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 10px;
+#inventoryTable{
+    flex-direction: column;
 
 }
+#expireWarning{
+    flex-flow: wrap;
+    justify-content: center;
+    background-color:#f2f2f2;
+    width: 25%;
+}
+
+.errorMessage{
+    background-color: #F2DEDE;
+
+}
+.expiredRow{
+    background-color: #FF4136;
+}
 #buttons{
-    position: relative;
-    left: 40%;
+    display: flex;
+    justify-content: center;
     margin: 0 -150px;
 }
 
@@ -80,23 +101,75 @@ w3{
     vertical-align: top;
     border-radius: 6px;
     font-weight:bold;
-    display:block;
+    display:flex;
 }
-#editForm {
+
+.modal {
     display: none;
-    border: 3px solid #000000;
+    position: fixed;
+    z-index: 1; /* Sits on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /*fallback color */
+    background-color: rgba(0,0,0,0.4);  /* black w/ opacity */
+}
+.modal-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
     background-color: #f2f2f2;
-    padding: 20px;
-    position: relative;
-    width: 40%;
-    height: 10%;
-    z-index: 15;
-    left: 45%;
-    margin: 0 -150px;
+    margin: 15% auto;
+    padding: 10px;
+    border: 4px solid black;
 
+}
+.modalButton{
+    color: black;
+    background-color: silver;
+    text-align: center;
+    height: 15%;
+
+}
+#addFormModalContent{
+    
+}
+.addFormContainer{
+    display: flex;
+    flex-direction: column;
+}
+#addFormShelfLifeInputContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.addFormInput{
+    /*width: 55%;*/
+}
+#addFormSubmit{
+
+}
+#editFormModalContent{
+    width: 45%;
+    height: 20%;
+}
+#editFormButtons{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 100%;
 
 
 }
+#editFormHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 #closeFormButton {
     float:right;
 }
@@ -117,10 +190,12 @@ w3{
 }
 
 .lds-spinner {
-    color: official;
-    position: relative;
+    color: black;
+    position: absolute;
+    left: 45%;
     width: 64px;
     height: 64px;
+    justify-content: center;
 }
 .lds-spinner div {
     transform-origin: 32px 32px;
@@ -135,7 +210,7 @@ w3{
     width: 5px;
     height: 14px;
     border-radius: 20%;
-    background: #fff;
+    background: black;
 }
 .lds-spinner div:nth-child(1) {
     transform: rotate(0deg);

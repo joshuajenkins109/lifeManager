@@ -4,22 +4,42 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <servlet>
-        <servlet-name>world</servlet-name>
-        <servlet-class>world</servlet-class>
+        <servlet-name>GETFridgeInventory</servlet-name>
+        <servlet-class>GETFridgeInventory</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>world</servlet-name>
-        <url-pattern>/world</url-pattern>
+        <servlet-name>GETFridgeInventory</servlet-name>
+        <url-pattern>/GETFridgeInventory</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>itemUpdate</servlet-name>
-        <servlet-class>itemUpdate</servlet-class>
+        <servlet-name>OpenItem</servlet-name>
+        <servlet-class>OpenItem</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>itemUpdate</servlet-name>
-        <url-pattern>/itemUpdate</url-pattern>
+        <servlet-name>OpenItem</servlet-name>
+        <url-pattern>/OpenItem</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddItemToFridge</servlet-name>
+        <servlet-class>AddItemToFridge</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddItemToFridge</servlet-name>
+        <url-pattern>/AddItemToFridge</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoveItem</servlet-name>
+        <servlet-class>RemoveItem</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RemoveItem</servlet-name>
+        <url-pattern>/RemoveItem</url-pattern>
+    </servlet-mapping>
+
 </web-app>

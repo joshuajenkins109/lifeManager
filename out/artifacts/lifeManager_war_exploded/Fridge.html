@@ -11,7 +11,9 @@
         crossorigin="anonymous"></script>
 <link href="https://unpkg.com/tabulator-tables@4.2.3/dist/css/tabulator.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.2.3/dist/js/tabulator.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="Fridge.js"></script>
+
 
 
 
@@ -19,7 +21,7 @@
 
 <div id="head">
     <button id="return" class="return" type="button" onclick="returnButton()">&#8617 Return</button>
-    <h1>The Fridge</h1>
+    <div class="h1"><h1>The Fridge</h1></div>
 </div>
 <div id="buttons" class="active">
     <button class="button viewInventoryButton" type="button" onClick="onInventoryClick()">What's in the Fridge?</button>
@@ -29,37 +31,60 @@
 <div id="loading" style="display:none" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 <div id="inventoryTable" style="display:none">
     <div>
-        <form id="editForm">
-            <input id="closeFormButton" type="submit" value="Cancel">
-            <p id="editFormHeader"></p>
-            <button id="openButton" type="button" value="Open" style="display:none" onclick="openItem()">Open</button>
-            <input id="removeButton" type="submit" value="Remove item">
-            <input id="editButton" type="submit" value="Edit item info">
-
-        </form>
-        <button id="addButton"  type="button" onclick="addItem()">Add Item</button>
-        <w1 id="expireWarning">You have <w3>0</w3> Expired Items</w1>
+        <div id="editFormModal" class="modal">
+            <div id="editFormModalContent" class="modal-content">
+                <div id="editFormHeader">
+                    <p id="editFormHeaderItemName"></p>
+                    <p id="editFormHeaderItemStatus"></p>
+                    <p id="editFormHeaderItemInDate"></p>
+                    <p id="editFormHeaderItemExpireDate"></p>
+                    <p id="editFormHeaderItemShelfLife"></p>
+                </div>
+                <div id="editFormButtons">
+                    <button id="openButton" class="modalButton" type="button" value="Open" style="display:none" onclick="openItemConfirmation()">Open</button>
+                    <input id="removeButton" class="modalButton" type="button" onclick="removeItemConfirmation()" value="Remove item">
+                    <input id="editButton" class="modalButton" type="button" value="Edit item info">
+                    <input id="closeFormButton" class="modalButton" type="button" onclick="hideEditForm()" value="Cancel">
+                </div>
+            </div>
+        </div>
+        <button id="addButton"  type="button" onclick="openAddItemForm()">Add Item</button>
+        <div id="expireWarning"><w1 >You have <w3>0</w3> Expired Items</w1></div>
 
     </div>
-    <div id="addForm" style="display:none">
-        <form id="addFormElement" method="POST" action="/world">
-            <f1>Item Name</f1><br>
-            <input type="text" name="name"> <br>
-            <f1>Expire Date</f1><br>
-            <input type="date" name="expireDate"> <br>
-            <f1>Shelf Life</f1><br>
-            <input type="number" name="shelfLife" min="1">
-            <select name="shelfLifeHelper">
-                <option value="Day(s)">Day(s)</option>
-                <option value="Week(s)">Week(s)</option>
-                <option value="Month(s)">Month(s)</option>
-            </select><br>
-            <input type="radio" name="opened" value="True" checked> Open
-            <input type="radio" name="opened" value="False"> Closed <br>
-            <input type="radio" name="inFridge" value="True" checked> In Fridge
-            <input type="radio" name="inFridge" value="False"> Not in Fridge <br>
-            <input type="submit" value="Add">
-        </form>
+    <div id="addFormModal" class="modal">
+        <div id="addFormModalContent" class="modal-content">
+            <div id="addFormNameContainer" class="addFormContainer">
+                <f1 class="flex-centered"> Item Name</f1>
+                <input type="text" id="addFormName" name="name" class="flex-centered addFormInput"> <u1 style="display:none;" class="errorMessage" id="NameErrorMessage">Name Required</u1>
+            </div>
+            <div id="addFormExpireDateContainer" class="addFormContainer">
+                <f1 class="flex-centered">Expire Date</f1>
+                <input type="date" id="addFormExpireDate" name="expireDate" class="flex-centered addFormInput">  <u1 style="display:none;" class="errorMessage" id="ItemErrorMessage">At Least One of Expiration Date or Shelf Life Required</u1>
+            </div>
+            <div id="addFormShelfLifeContainer" class="addFormContainer">
+                <f1 class="flex-centered">Shelf Life</f1>
+                <div id="addFormShelfLifeInputContainer" class="flex-centered">
+                    <input type="number" id="addFormShelfLife" name="shelfLife" min="1">
+                    <select id="addFormShelfLifeHelper" name="shelfLifeHelper">
+                        <option value="Day(s)">Day(s)</option>
+                        <option value="Week(s)">Week(s)</option>
+                        <option value="Month(s)">Month(s)</option>
+                    </select>
+                </div>
+            </div>
+            <div id="addFormRadioContainer" class="flex-centered">
+                <div id="addFormOpenedContainer" class="flex-centered">
+                    <input type="radio" id="addFormOpened" name="opened" value="True" class="flex-centered" checked> Open
+                    <input type="radio" name="opened" value="False" class="flex-centered"> Closed
+                </div>
+                <div id="addFormInFridgeContainer" class="flex-centered">
+                    <input type="radio" id="addFormInFridge" name="inFridge" value="True" class="flex-centered" checked> In Fridge
+                    <input type="radio" name="inFridge" value="False" class="flex-centered"> Not in Fridge
+                </div>
+            </div>
+            <input type="button" id="addFormSubmit" onclick="addItemToInventory()" value="Add" class="flex-centered" >
+        </div>
     </div>
     <div id="inventoryTablediv"></div>
 </div>

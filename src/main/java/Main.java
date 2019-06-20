@@ -27,14 +27,7 @@ public class Main {
             System.out.println(itemm.getName() + " in on " + itemm.getInDate().toString());
         }*/
 
-        Set<Character> set = new HashSet<>();
-        set.add('d');
-        set.add('a');
-        set.add('d');
-        set.add('b');
-        System.out.println(set);
-        set.remove('d');
-        System.out.println(set);
+
     }
 
 
@@ -42,9 +35,8 @@ public class Main {
 
             Either add button or on click give options to do things (open/close, remove/add, extend shelf life?,)
             try to fix in date (it currently includes time, lets remove that)
-            make table loading centered
 
-            Expire-date :  Still need to set after opening (currently 'opening' isnt possible)
+
            Add: Accepts Expire and shelf, shelf or expire, but not neither
      */
 }
