@@ -237,8 +237,6 @@ function openItem(){
         type: 'POST',
         data: json,
         success: function(response){
-            console.log("respppper");
-            console.log(response);
             var item = [response];
             globTable.updateData(item);
             hideOpenButton();
@@ -273,7 +271,7 @@ function removeItemConfirmation(){
         }
 });
 
-    console.log("well did it work?");
+
 }
 function removeItem(){
     var json = {"id":editFormId};

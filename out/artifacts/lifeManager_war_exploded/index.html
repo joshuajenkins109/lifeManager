@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="index.css">
 <head>
 
 </head>
 <body>
 <h1>HELLO</h1>
-<a href="Fridge.html"><button>Fridge</button></a>
-<button>BILLYSBUTTON</button>
-<button>areyouthere</button>
+<div id="MainButtonContainer"></div>
+
+
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+<!-- Load our React component. -->
+<script type="text/babel" src="MainButton.js"></script>
 </body>
 </html>
