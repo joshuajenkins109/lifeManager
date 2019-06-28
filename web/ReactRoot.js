@@ -7,7 +7,7 @@ class ReactRoot extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            appPage: null,
+            appPage: null
         };
         this.handlePageChange = this.handlePageChange.bind(this);
     }
@@ -21,7 +21,7 @@ class ReactRoot extends React.Component {
             page = <Home handlePageChange={this.handlePageChange}/>;
         }
         else if( this.state.appPage == "The Fridge"){
-            page = <h1>HELLLLOOOOOOOOOOO</h1>;
+            page = <TheFridge />
 
         }
         else {

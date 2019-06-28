@@ -7,13 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a0583a4-dc39-4b81-9b55-7a8da91e7c18" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/Button.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/Home.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/TheFridge.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/lifeManager_war_exploded/MainButton.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/MainButton.js" afterPath="$PROJECT_DIR$/web/ReactRoot.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/lifeManager_war_exploded/index.html" afterPath="$PROJECT_DIR$/out/artifacts/lifeManager_war_exploded/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/FridgeHeader.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/FridgeHome.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.html" afterPath="$PROJECT_DIR$/web/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,41 +29,11 @@
         <splitter split-orientation="vertical" split-proportion="0.5">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="Fridge.js" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/web/Fridge.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="17">
-                      <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+              <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/web/index.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="340">
-                      <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="RemoveItem.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/main/java/RemoveItem.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="374">
-                      <caret line="30" column="48" lean-forward="false" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="374">
-                      <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+                    <state relative-caret-position="230">
+                      <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
                       <folding />
                     </state>
                   </provider>
@@ -77,7 +42,7 @@
               <file leaf-file-name="Fridge.html" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/web/Fridge.html">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="119">
+                    <state relative-caret-position="-104">
                       <caret line="7" column="32" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="7" selection-end-column="32" />
                       <folding>
                         <element signature="n#style#0;n#div#3;n#body#0;n#!!top" expanded="true" />
@@ -90,18 +55,18 @@
               <file leaf-file-name="Fridge.css" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/web/Fridge.css">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="3179">
+                    <state relative-caret-position="17">
                       <caret line="187" column="22" lean-forward="false" selection-start-line="177" selection-start-column="3" selection-end-line="187" selection-end-column="22" />
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="TheFridge.js" pinned="false" current-in-tab="true">
+              <file leaf-file-name="TheFridge.js" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/web/TheFridge.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="153">
-                      <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+                    <state relative-caret-position="289">
+                      <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
                       <folding />
                     </state>
                   </provider>
@@ -157,7 +122,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Fridge.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Fridge.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/web/Fridge.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="340">
@@ -167,11 +132,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ReactRoot.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ReactRoot.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/ReactRoot.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
-                  <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+                <state relative-caret-position="153">
+                  <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -182,6 +147,26 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="187">
                   <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FridgeHome.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web/FridgeHome.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="136">
+                  <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FridgeHeader.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/web/FridgeHeader.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="102">
+                  <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
                   <folding />
                 </state>
               </provider>
@@ -286,11 +271,13 @@
         <option value="$PROJECT_DIR$/web/index.css" />
         <option value="$PROJECT_DIR$/web/FridgeInventory.js" />
         <option value="$PROJECT_DIR$/web/MainButton.js" />
-        <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/Home.js" />
         <option value="$PROJECT_DIR$/web/Button.js" />
-        <option value="$PROJECT_DIR$/web/ReactRoot.js" />
+        <option value="$PROJECT_DIR$/web/FridgeHeader.js" />
+        <option value="$PROJECT_DIR$/web/FridgeHome.js" />
         <option value="$PROJECT_DIR$/web/TheFridge.js" />
+        <option value="$PROJECT_DIR$/web/ReactRoot.js" />
+        <option value="$PROJECT_DIR$/web/index.html" />
       </list>
     </option>
   </component>
@@ -819,12 +806,12 @@
       <workItem from="1561752322389" duration="1775000" />
       <workItem from="1561754143960" duration="1772000" />
       <workItem from="1561755963584" duration="1787000" />
-      <workItem from="1561757897216" duration="308000" />
+      <workItem from="1561757897216" duration="1701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="299917000" />
+    <option name="totallyTimeSpent" value="301310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -877,20 +864,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/FridgeItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Fridge.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1125,14 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/Fridge.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3179">
-          <caret line="187" column="22" lean-forward="false" selection-start-line="177" selection-start-column="3" selection-end-line="187" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1145,14 +1110,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1180,14 +1137,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/FridgeInventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Fridge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/FridgeHeader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Fridge.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="187" column="22" lean-forward="false" selection-start-line="177" selection-start-column="3" selection-end-line="187" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/Fridge.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="-104">
           <caret line="7" column="32" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="7" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#div#3;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/FridgeHome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/TheFridge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1199,26 +1204,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/FridgeInventory.js">
+    <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Fridge.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/TheFridge.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="230">
+          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
           <folding />
         </state>
       </provider>
