@@ -5,11 +5,13 @@ class Button extends React.Component {
 
 
     render() {
-        const Value = this.props.name;
+        const {  name, handleClick, className } = this.props;
+        // const name = this.props.name
+        // const handlePageChange = this.props.handlePageChange
         return (
 
-            <button onClick={() => {this.props.handlePageChange(Value)}} value={Value}>
-                {Value}
+            <button onClick={ handleClick } className={ className } >
+                { name }
             </button>
 
         );

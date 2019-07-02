@@ -8,10 +8,25 @@ class Home extends React.Component {
 
         return(
             <React.Fragment>
-                <Button handlePageChange={this.props.handlePageChange} name="The Fridge" />
+                <Button handleClick={this.props.handlePageChange} name="The Fridge" />
                 <button>BillysButton</button>
                 <button>Third</button>
             </React.Fragment>
         )
     }
 }
+
+/*
+if(this.state.boolean){
+    return (
+        <Button>
+    )
+}
+else {
+    return <Button2>
+}
+
+this.state.condition ? <Button> : <Button2>
+
+this.state.thing && <button>
+ */

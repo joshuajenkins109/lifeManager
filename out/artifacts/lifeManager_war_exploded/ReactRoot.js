@@ -7,14 +7,21 @@ class ReactRoot extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            appPage: null,
+            appPage: null
         };
         this.handlePageChange = this.handlePageChange.bind(this);
     }
-    handlePageChange(page){
-        this.setState({appPage: page});
-        console.log("We hit the handlePageChange with: " , page);
-        console.log("state: ", this.state.appPage);
+
+    handlePageChange(evt){
+        console.log(evt.target.innerText);
+        console.log('this', evt.target);
+        if(evt.target.innerText != "return"){
+            this.setState({appPage: evt.target.innerText});
+        }
+        else{
+            this.setState({appPage: null})
+        }
+
     }
 
     render(){
@@ -23,7 +30,7 @@ class ReactRoot extends React.Component {
             page = <Home handlePageChange={this.handlePageChange}/>;
         }
         else if( this.state.appPage == "The Fridge"){
-            page = <h1>HELLLLOOOOOOOOOOO</h1>;
+            page = <TheFridge handlePageChange={this.handlePageChange}/>
 
         }
         else {

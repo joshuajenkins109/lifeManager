@@ -11,8 +11,17 @@ class ReactRoot extends React.Component {
         };
         this.handlePageChange = this.handlePageChange.bind(this);
     }
-    handlePageChange(page){
-        this.setState({appPage: page});
+
+    handlePageChange(evt){
+        console.log(evt.target.innerText);
+        console.log('this', evt.target);
+        if(evt.target.innerText != "return"){
+            this.setState({appPage: evt.target.innerText});
+        }
+        else{
+            this.setState({appPage: null})
+        }
+
     }
 
     render(){
@@ -21,7 +30,7 @@ class ReactRoot extends React.Component {
             page = <Home handlePageChange={this.handlePageChange}/>;
         }
         else if( this.state.appPage == "The Fridge"){
-            page = <TheFridge />
+            page = <TheFridge handlePageChange={this.handlePageChange}/>
 
         }
         else {
