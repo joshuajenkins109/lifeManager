@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2a0583a4-dc39-4b81-9b55-7a8da91e7c18" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Home.js" afterPath="$PROJECT_DIR$/web/Home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/PongHome.js" afterPath="$PROJECT_DIR$/web/PongHome.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/PongSelectionPage.js" afterPath="$PROJECT_DIR$/web/PongSelectionPage.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -103,8 +101,8 @@
           <file leaf-file-name="PongSelectionPage.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/web/PongSelectionPage.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="595">
-                  <caret line="35" column="118" lean-forward="false" selection-start-line="35" selection-start-column="118" selection-end-line="35" selection-end-column="118" />
+                <state relative-caret-position="119">
+                  <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
                   <folding />
                 </state>
               </provider>
@@ -231,7 +229,7 @@
     <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="845" />
     <option name="y" value="9" />
     <option name="width" value="978" />
@@ -752,15 +750,15 @@
       <workItem from="1562382546952" duration="1598000" />
       <workItem from="1562384264334" duration="1722000" />
       <workItem from="1562386026666" duration="1817000" />
-      <workItem from="1562387937914" duration="750000" />
+      <workItem from="1562387937914" duration="1177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="326117000" />
+    <option name="totallyTimeSpent" value="326544000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1138,8 +1136,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/PongSelectionPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="118" lean-forward="false" selection-start-line="35" selection-start-column="118" selection-end-line="35" selection-end-column="118" />
+        <state relative-caret-position="119">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding />
         </state>
       </provider>

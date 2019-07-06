@@ -2,10 +2,13 @@
 
 class PongSelectionPage extends React.Component {
 
-
+    /*
+        TODO: Improve message selection
+        TODO: class PongButton, Disabled, Selected
+     */
     const nullMessage = "Select a game mode to continue";
-    const SinglePlayerMessage = "Single-Player selected. Press Start to begin."
-    const TwoPlayerMessage = "Two-Player selected. Press Start to begin"
+    const SinglePlayerMessage = "Single-Player selected. Press Start to begin.";
+    const TwoPlayerMessage = "Two-Player selected. Press Start to begin";
     render(){
 
         if(this.props.gameMode === null){
@@ -14,7 +17,7 @@ class PongSelectionPage extends React.Component {
                     <Button name="Single-Player" handleClick={ this.props.changeGameMode } className="PongButton" />
                     <span id="PongMessage">  { this.nullMessage }  </span>
                     <Button name="Two-Player" handleClick={ this.props.changeGameMode } className="PongButton" />
-                    <Button name="Start Game" handleClick={ this.props.startGame } className="PongButton disabled" />
+                    <Button name="Start Game" handleClick={ this.props.startGame } className="PongButton Disabled" />
                 </div>
             )
         }
@@ -32,7 +35,7 @@ class PongSelectionPage extends React.Component {
             return (
                 <div id="PongSelectionContainer">
                     <Button name="Single-Player" handleClick={ this.props.changeGameMode } className="PongButton" />
-                    <span id="PongMessage">  { this.SinglePlayerMessage }  </span>
+                    <span id="PongMessage">  { this.TwoPlayerMessage }  </span>
                     <Button name="Two-Player" handleClick={ this.props.changeGameMode } className="PongButton Selected" />
                     <Button name="Start Game" handleClick={ this.props.startGame } className="PongButton" />
                 </div>
