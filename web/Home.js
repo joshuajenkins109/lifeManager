@@ -6,7 +6,7 @@ class Home extends React.Component {
 
 
 
-        return(
+        return (
             <React.Fragment>
                 <Button handleClick={this.props.handlePageChange} name="The Fridge" />
                 <button>BillysButton</button>

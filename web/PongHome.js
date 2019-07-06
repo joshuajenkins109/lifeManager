@@ -9,23 +9,29 @@ class PongHome extends React.Component {
 
 
         }
+        this.changeGameMode = this.changeGameMode.bind(this);
+        this.startGame = this.startGame.bind(this);
+    }
+
+    changeGameMode(evt){
+        this.setState({gameMode: evt.target.innerText});
+    }
+    startGame(){
+        this.setState({gameActive: true});
     }
 
     render(){
-        if(this.state.gameMode === null) {
+        if(this.state.gameActive) {
             return (
-                <PongSelectionPage/>
+                <PongGamePage gameMode={this.state.gameMode} /> /* TODO */
+            )
+
+        }
+        else {
+            return (
+                <PongSelectionPage changeGameMode={this.changeGameMode}/>
             )
         }
-        else if(this.state.gameMode === "Single-Player"){
-            return (
-                <PongGamePage />
-            )
-        }
-        else if(this.state.gameMode === "Two-Player"){
-            return (
-                <PongGamePage />
-            )
-        }
+
     }
 }
