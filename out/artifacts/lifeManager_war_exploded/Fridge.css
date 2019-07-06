@@ -91,7 +91,7 @@ w3{
     margin: 0 -150px;
 }
 
-#addButton{
+.addButton{
     color: black;
     background-color: silver;
     text-align: center;

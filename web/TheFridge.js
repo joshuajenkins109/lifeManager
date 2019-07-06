@@ -8,28 +8,36 @@ class TheFridge extends React.Component {
             isHome: true,
 
         };
+        this.calculateExpiredItems = this.calculateExpiredItems.bind(this);
     }
 
     handleFeatureChange(evt){
-        if(evt.target.innerText != "return") {
+        if(evt.target.innerText !== "return") {
             this.setState({
                 feature: evt.target.innerText,
-                isHome: this.state.feature == null
+                isHome: this.state.feature === null
             });
         }
         else{
             this.setState({
                 feature: null,
                 isHome: true,
+                data: null,
             });
         }
+    }
+    calculateExpiredItems(){
+        /* TODO: Parse Data to calculate */
     }
 
     render(){
         if(this.state.feature === null){
             return (
                 <React.Fragment>
-                    <FridgeHeader isHome={this.state.isHome} handlePageChange={this.props.handlePageChange}/>
+                    <FridgeHeader
+                        isHome={this.state.isHome}
+                        handlePageChange={this.props.handlePageChange}
+                    />
                     <FridgeHome />
                 </React.Fragment>
             )
@@ -38,7 +46,11 @@ class TheFridge extends React.Component {
             return (
                 <React.Fragment>
                     <FridgeHeader />
-                    /*<FridgeInventory/>*/ /*TODO*/
+                    {this.state.data === null ?
+                        <LoadingData/> :
+                        <FridgeInventory calculateExpiredItems={this.calculateExpiredItems}/>
+
+                    }
                 </React.Fragment>
             )
         }
