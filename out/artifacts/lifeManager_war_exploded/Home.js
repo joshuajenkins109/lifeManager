@@ -6,11 +6,11 @@ class Home extends React.Component {
 
 
 
-        return(
+        return (
             <React.Fragment>
                 <Button handleClick={this.props.handlePageChange} name="The Fridge" />
                 <button>BillysButton</button>
-                <button>Third</button>
+                <Button name="Pong" handleClick={this.props.handlePageChange} />
             </React.Fragment>
         )
     }
